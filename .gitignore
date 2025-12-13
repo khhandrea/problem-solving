@@ -1,6 +1,8 @@
-# Ignore binary files (without exetension)
-*
-!*.*
-!*/
+# Ignore executable files
+a.out
+*.exe
+
+# OS
+.DS_Store
 
 .vscode/
