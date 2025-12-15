@@ -1,15 +1,26 @@
+#include <algorithm>
 #include <iostream>
+#include <vector>
+
+using namespace std;
 
 int main() {
-    int n, cur;
-    int *counts;
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
 
-    std::cin >> n;
-    counts = new int[n];
+    int n;
+    cin >> n;
 
-    for (int i = 0; i < n; i++) {
-        
+    vector<int> dp(n + 1);
+
+    for (int i = 1; i < n + 1; i++) {
+        dp[i] = i;
+        for (int j = 1; j * j <= i; j++) {
+            dp[i] = min(dp[i], dp[i - j * j] + 1);
+        }
     }
+
+    cout << dp[n] << '\n';
 
     return 0;
 }
